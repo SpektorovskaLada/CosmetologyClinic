@@ -1,0 +1,170 @@
+.services-block{
+    text-align: center; /* Центрує заголовок і контент */
+    padding: 20px; /* Додає відступи всередині секції */
+}
+
+.services-main-title{
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.services-container{
+    text-align: left;
+    margin: 20px auto; /* Центрування блоку */
+    padding: 20px;
+    max-width: 600px; /* Максимальна ширина блоку */
+    border: 3px solid var(--color-teracota-dark);
+    box-shadow: 0 8px 24px 6px rgba(0,0,0,0.1); /* Тінь для глибини */
+    transition: border-color 0.3s ease; /* Анімація зміни кольору границі */
+}
+.services-container:hover{
+    border-color: rgba(0,0,0);
+}
+
+.services-title{
+    font-size: 22px;
+    color:rgba(0,0,0);
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.services-content{
+    font-size: 16px;
+    color:rgba(0,0,0);
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.services-learn-more{
+    font-size: 16px;
+    color: var(--color-teracota-dark);
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-weight: bold; /* Виділення шрифтом */
+    color:rgba(0,0,0);
+    transition: color 0.3s ease;
+    text-decoration:none;
+}
+.services-learn-more:hover{
+    color: var(--color-teracota-darker); /* Зміна кольору при наведенні */
+}
+
+.services-price{
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.services-button-signUpForm{
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 150;
+    font-size: 16px;
+    display: inline-block;
+    border: none;
+    background-color: var(--color-teracota-dark);
+    box-shadow: 0 8px 24px 6px rgba(0,0,0,0.1);
+    padding: 16px 26px 15px;
+    line-height: 1.1;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.services-button-signUpForm:hover{
+    background-color: var(--color-teracota-darker);
+}
+
+.learn-more-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align: left;
+    overflow-y: auto;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-beige-grey);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    max-height: 80vh;
+    outline: none;
+    display: none;
+    max-width: 90%;
+    border-radius: 10px;
+}
+
+.learn-more-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+.learn-more-content h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.learn-more-content h2 {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.learn-more-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.learn-more-clbutton {
+    margin-top: 10px;
+    padding: 10px;
+    background:var(--color-teracota-dark);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 20px auto 0;
+    display: block;
+}
+
+.learn-more-clbutton:hover {
+    background: var(--color-teracota-darker);
+}
+
+
+@media only screen and (max-width: 480px) {
+    .services-block{
+        padding: 10px;
+    }
+    .services-main-title{
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    .services-container{
+        margin: 10px auto; /* Центрування блоку */
+        padding: 10px;
+        max-width: 300px; /* Максимальна ширина блоку */
+        border: 3px solid var(--color-teracota-dark);
+        box-shadow: 0 6px 15px 4px rgba(0,0,0,0.1); /* Тінь для глибини */
+    }
+    .services-price{
+        font-size: 12px;
+        line-height: 1;
+        margin-bottom: 10px;
+    }
+    .services-button-signUpForm{
+        font-weight: 150;
+        font-size: 12px;
+        box-shadow: 0 6px 15px 4px rgba(0,0,0,0.1);
+        padding: 10px 18px 10px;
+        line-height: 1.1;
+        border-radius: 8px;
+    }
+}

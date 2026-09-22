@@ -1,0 +1,89 @@
+header {
+    background-color: var(--color-beige-grey);
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+header nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: fit-content;
+}
+.emblema{
+    margin-left: 10px;
+    height: fit-content;
+}
+
+.emblema img{
+    width: 200px;
+}
+
+.links{
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-grow: 1;
+    height: fit-content;
+}
+
+.links-inner{
+    margin-right:10px;
+    height: fit-content;
+}
+
+.links-a{
+    color: var(--color-teracota-dark);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.links-a:hover{
+    color: var(--color-teracota-darker);
+}
+
+.contact_button{
+    text-transform: uppercase;
+    color: white;
+    border: none;
+    font-size: 16px;
+    padding: 12px 30px;
+    margin: 0 auto; /* Центрування кнопки */
+    background-color: var(--color-teracota-dark);
+    box-shadow: 0 8px 24px 6px rgba(0,0,0,0.1);
+    line-height: 1.1;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact_button:hover{
+    background-color: var(--color-teracota-darker)
+}
+
+
+
+@media only screen and (max-width: 480px) {
+    .emblema img{
+        width: 150px;
+    }
+    .a{
+        display: none;
+    }
+    .contact_button{
+        height: 30px;
+        line-height: 0;
+        width: 120px;
+        padding: 0;
+    }
+    .contact_button:hover{
+    background-color: var(--color-teracota-darker)
+    }
+    .links{
+        flex-grow: 0;
+    }
+    header nav{
+        justify-content: space-around;
+    }
+}

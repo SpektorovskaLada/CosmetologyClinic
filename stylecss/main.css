@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@import url(./header.css);
+@import url(./footer.css);
+@import url(./doctor_info.css);
+@import url(./services.css);
+@import url(./form.css);
+:root{
+    --color-teracota-nearly-black:#451911;
+    --color-teracota-darker:#7D3E37;
+    --color-teracota-dark: #91524B;
+    --color-teracota-light: #BA7D66;
+    --color-beige-light: #C09E94;
+    --color-beige-grey: #D9C5BC;
+    --color-nearly-white: #EDE1CF;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+body{
+    margin: 0;
+    background-color:var(--color-nearly-white);
+    font-family: "Comfortaa", sans-serif;
+    color:var(--color-teracota-darker);
+}
+
+@media only screen and (max-width: 480px) {
+    body{
+        font-family: "Comfortaa", sans-serif;
+        color:rgba(0,0,0);
+    }
+    .face_inside_image{
+        width: 100px;
+    }
+    .image-container{
+        width: 100px;
+        height: 100px;
+    }
+    .thumbnail{
+        width: 100px;
+    }
+    .face_inside{
+        font-size: x-small;
+    }
+}

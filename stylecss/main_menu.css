@@ -1,0 +1,485 @@
+/*Про лікаря.Вступ*/
+/* Стилізація контейнера */
+.hero-container {
+    display: flex;            /* Вирівнювання елементів у рядок */
+    align-items: center;      /* Центрування по вертикалі */
+    justify-content: space-around; 
+    gap: 20px;                /* Відстань між елементами */
+    padding: 20px;
+}
+
+/* Зображення та кнопка */
+.hero-image-container {
+    display: flex;
+    flex-direction: column;      /* Розташування зображення та кнопки вертикально */
+    align-items: center;         /* Вирівнювання по центру */
+    width: 48%;                  /* Ширина зображення + кнопки */
+}
+
+/* Стилізація зображення */
+.hero-image {
+    width: 75%;              /* Збільшення розміру зображення */
+    height: auto;            /* Збереження пропорцій */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Стилізація тексту */
+.hero-text {
+    width: 48%;              /* Займає іншу половину простору */
+    font-size: 30px;         /* Розмір тексту */
+    line-height: 1.6;
+    display: flex;
+    text-align: center;
+}
+
+.learn-more {
+    margin-top: 5px;            /* Відступ зверху */
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: var(--color-teracota-dark);   
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.learn-more:hover{
+    background-color: var(--color-teracota-darker)
+}
+
+/* Секція послуг */
+.services {
+    text-align: center; /* Центрує заголовок і контент */
+    padding: 20px; /* Додає відступи всередині секції */
+}
+
+/* Заголовок секції */
+.menu-services-title {
+    font-size: 32px; /* Розмір шрифту заголовка */
+    margin-bottom: 30px; /* Відступ знизу для розділення з кнопками */
+    text-transform: uppercase; /* Перетворює текст на великі літери */
+    font-weight: bold; /* Робить текст жирним */
+}
+
+/* Контейнер для кнопок */
+.menu-services-container {
+    display: flex; /* Встановлює гнучке розташування елементів */
+    justify-content: center; /* Центрує кнопки по горизонталі */
+    gap: 50px; /* Встановлює відстань між кнопками */
+    flex-wrap: wrap; /* Дозволяє перенесення кнопок на новий рядок при обмеженій ширині */
+}
+
+/* Оформлення кнопок */
+.service-button {
+    width: 300px; /* Ширина кнопки */
+    height: 200px; /* Висота кнопки */
+    overflow: hidden; /* Ховає частини зображення, які виходять за межі кнопки */
+    border-radius: 10px; /* Закруглення кутів */
+    position: relative; /* Дозволяє позиціонувати псевдоелементи всередині */
+    cursor: pointer; /* Змінює курсор на "руку" при наведенні */
+}
+
+/* Зображення в кнопці */
+.service-button img {
+    width: 100%; /* Зображення займає всю ширину кнопки */
+    height: 100%; /* Зображення займає всю висоту кнопки */
+    object-fit: cover; /* Зберігає пропорції зображення і обрізає зайве */
+    display: block; /* Забирає зайві відступи, які можуть з'явитися через inline-стиль */
+    transition: opacity 0.3s ease; /* Додає плавність ефекту затемнення */
+}
+
+/* Ефект затемнення при наведенні */
+.service-button::after {
+    content: ''; /* Створює порожній псевдоелемент */
+    position: absolute; /* Позиціонування відносно контейнера кнопки */
+    top: 0; /* Прив'язка до верхнього краю */
+    left: 0; /* Прив'язка до лівого краю */
+    width: 100%; /* Займає всю ширину кнопки */
+    height: 100%; /* Займає всю висоту кнопки */
+    background: rgba(0, 0, 0, 0.4); /* Напівпрозорий чорний фон для ефекту затемнення */
+    opacity: 0; /* Спочатку затемнення непомітне */
+    transition: opacity 0.3s ease; /* Додає плавний перехід ефекту */
+}
+
+/* Ефект затемнення при наведенні миші */
+.service-button:hover img {
+    opacity: 0.7; /* Зменшує прозорість зображення */
+}
+
+.service-button:hover::after {
+    opacity: 1; /* Робить затемнення повністю видимим */
+}
+
+/* Текст на кнопці */
+.service-button span {
+    position: absolute; /* Позиціонує текст поверх зображення */
+    bottom: 10px; /* Відступ від нижнього краю кнопки */
+    left: 10px; /* Відступ від лівого краю */
+    right: 10px; /* Відступ від правого краю */
+    background-color: rgba(0, 0, 0, 0.6); /* Напівпрозорий чорний фон для тексту */
+    color: #fff; /* Білий колір тексту */
+    padding: 8px; /* Внутрішні відступи всередині блоку з текстом */
+    font-size: 16px; /* Розмір шрифту тексту */
+    text-align: center; /* Центрує текст по горизонталі */
+    border-radius: 5px; /* Закруглення кутів текстового блоку */
+}
+
+/* Магазин */
+.shop {
+    text-align: center; /* Центрує заголовок і контент */
+    padding: 20px; /* Додає відступи всередині секції */
+}
+
+/* Заголовок секції */
+.shop-title {
+    font-size: 32px; /* Розмір шрифту заголовка */
+    margin-bottom: 30px; /* Відступ знизу для розділення з кнопками */
+    text-transform: uppercase; /* Перетворює текст на великі літери */
+    font-weight: bold; /* Робить текст жирним */
+}
+.menu-items-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.menu-items-personal-container{
+    background-color: white;
+    margin: 10px;
+    border: none;
+    border-radius: 30px;
+}
+
+.menu-items{
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    justify-content: center;
+}
+.menu-items:hover{
+    cursor: pointer;
+    border: solid black 2px;
+    border-radius: 30px;
+}
+
+.menu-image-wraper{
+    border: none;
+    border-radius: 30px;
+    overflow: hidden;
+} 
+
+.menu-cream-image{
+    width: 300px;
+    object-fit: cover;
+}
+
+.menu-items-description{
+    padding: 5px;
+}
+
+.show-all{
+    margin-top: 5px;            /* Відступ зверху */
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: var(--color-teracota-dark);   
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.show-all:hover{
+    background-color: var(--color-teracota-darker)
+}
+
+/*До/після*/
+/* Загальний стиль для галереї */
+.galery {
+    text-align: center; /* Центрує заголовок і контент */
+    padding: 20px; /* Відступи всередині секції */
+  }
+  
+.galery-title {
+    font-size: 32px; /* Розмір шрифту заголовка */
+    margin-bottom: 50px; /* Відступ знизу */
+    text-transform: uppercase; /* Великі літери */
+    font-weight: bold; /* Жирний шрифт */
+}
+  
+  /* Блок "До/Після" */
+.galery-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.galery-change {
+    position: relative;
+    width: 500px; /* Ширина блоку */
+    height: 400px; /* Висота блоку */
+    margin: 0 auto; /* Центрування блоку */
+    overflow: hidden; /* Приховує те, що виходить за межі */
+    border-radius: 10px; /* Закруглені краї */
+    border: 2px solid #ccc; /* Сіра рамка */
+}
+  
+.galery-change img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Масштабування зображень */
+    transition: opacity 1s ease; /* Плавний перехід */
+}
+  
+.galery-change .after {
+    opacity: 0; /* Початково приховано */
+}
+
+ /* Відгуки */
+.reviews {
+    box-sizing: border-box;
+    text-align: center;
+    padding: 20px;
+    background-color: var(--color-beige-grey);
+}
+
+.reviews-container {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px; /* Відстань між формою та відгуками */
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.form-section, .reviews-section {
+    width: 45%;
+    height: 400px; /* Фіксована висота */
+    border: 3px solid var(--color-teracota-dark);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Заголовок */
+.reviews-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Контент секції відгуків */
+.reviews-wrapper {
+    position: relative;
+    display: flex;
+    height: 100%;
+}
+
+.reviews-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review-item {
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left;
+    color: #333;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+/* Обмеження на кількість слів у відгуках */
+.review-item p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 20px;
+}
+.review-item h3 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Навігаційні кнопки */
+.nav-buttons-container {
+    position: absolute;
+    bottom: 3px; /* Притиснуто до нижньої границі */
+    right: 3px; /* Притиснуто до правої границі */
+    display: flex;
+    gap: 5px;
+}
+
+.nav-btn {
+    background: var(--color-teracota-dark);
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.nav-btn:hover {
+    background: var(--color-teracota-darker);
+}
+
+/* Форма */
+.index-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.index-input, .index-textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--color-nearly-white);
+    border-radius: 4px;
+}
+
+.index-textarea {
+    height: 150px; /* Фіксована висота для тексту */
+    resize: none; /* Заборонити зміну розміру */
+}
+
+.index-buttons {
+    background: var(--color-teracota-dark);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 12px 30px;
+    margin: 0 auto; /* Центрування кнопки */
+    display: block;
+    border-radius: 5px;
+}
+
+.index-buttons:hover {
+    background: var(--color-teracota-darker);
+}
+
+
+  
+@media only screen and (max-width: 480px) {
+    .hero-container{
+        padding-bottom: 0;
+    }
+    
+    .hero-image {
+        width: 120%;              /* Збільшення розміру зображення */
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    } 
+    .hero-text {
+        font-size: 10px;         /* Розмір тексту */
+    }
+    .learn-more {
+        margin-top: 3px;            /* Відступ зверху */
+        padding: 6px 16px;
+        font-size: 10px;
+    }
+    .menu-services-title {
+        font-size: 25px; /* Розмір шрифту заголовка */
+        margin-bottom: 20px; /* Відступ знизу для розділення з кнопками */
+    }
+    .menu-services-container {
+        gap: 15px; /* Встановлює відстань між кнопками */
+    }
+    .service-button {
+        width: 200px; /* Ширина кнопки */
+        height: 150px; /* Висота кнопки */
+    }
+    .service-button span {
+        bottom: 5px; /* Відступ від нижнього краю кнопки */
+        left: 5px; /* Відступ від лівого краю */
+        right: 5px; /* Відступ від правого краю */
+        padding: 8px; /* Внутрішні відступи всередині блоку з текстом */
+        font-size: 14px; /* Розмір шрифту тексту */
+        border-radius: 3px; /* Закруглення кутів текстового блоку */
+    }
+    .shop-title{
+        font-size: 25px; /* Розмір шрифту заголовка */
+        margin-bottom: 20px; /* Відступ знизу для розділення з кнопками */
+    }
+     /* Контейнер з товарами */
+     .menu-items-container {
+        flex-direction: column; /* Вертикальне розташування елементів */
+        align-items: center;    /* Центрування елементів */
+    }
+
+    /* Персональний контейнер товару */
+    .menu-items-personal-container {
+        margin: 10px auto;     /* Центрування і рівні відступи */
+        width: 60%;           /* Адаптивна ширина */
+    }
+
+    /* Елементи товару */
+    .menu-items {
+        flex-direction: column; /* Вертикальне розташування товарів */
+        width: 100%;            /* Адаптивна ширина */
+    }
+
+    /* Зображення товарів */
+    .menu-cream-image {
+        width: 100%;           /* Зображення займає всю ширину контейнера */
+        object-fit: cover;     /* Зберігає пропорції */
+    }
+
+    /* Кнопка "Показати все" */
+    .show-all {
+        font-size: 14px;       /* Зменшено шрифт кнопки */
+        padding: 8px 16px;     /* Зменшено внутрішні відступи */
+    }
+    .galery-title {
+        font-size: 25px; /* Розмір шрифту заголовка */
+        margin-bottom: 20px; /* Відступ знизу */
+    }
+    .galery-change {
+        width: 300px; /* Ширина блоку */
+        height: 200px; /* Висота блоку */
+        margin:10px;
+    }
+    .reviews-title{
+        font-size: 25px; /* Розмір шрифту заголовка */
+        margin-bottom: 20px;
+    }
+    .reviews-container{
+        flex-direction: column; /* Вертикальне розташування */
+        align-items: center; /* Вирівнювання по центру */
+    }
+    .reviews-section, .form-section {
+        width: 100%; /* Ширина 100% для вертикального розташування */
+        margin-bottom: 20px; /* Відступ між блоками */
+    }
+    .index-input, .index-textarea {
+        padding: 10px;
+        font-size: 12px;
+    }
+    .review-item p {
+        font-size: 15px;
+    }
+    .review-item h3 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    .index-buttons {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+    .nav-btn {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,28 @@
+<!-- form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма запису</title>
+    <link rel="stylesheet" href="./../stylecss/form.css">
+</head>
+<body>
+    <form method="dialog" class="dialog-form">
+        <button id="closeForm">×</button>
+        <h2>Записатися на прийом</h2>
+        <label for="name">Ваше ім'я:</label>
+        <input type="text" id="name" name="name" placeholder="Введіть ваше ім'я">
+        
+        <label for="phone">Ваш телефон:</label>
+        <input type="tel" id="phone" name="phone" placeholder="+380 (XX) XXX-XXXX" pattern="\+?[0-9\s\-\(\)]{10,15}">
+    
+        <label for="message">Коментар:</label>
+        <textarea id="message" name="message" placeholder="Ваші побажання або питання"></textarea>
+        <label>
+            <input type="checkbox" id="agree" name="agree">
+            Погоджуюсь на обробку даних
+        </label>
+        <button type="submit">Записатися</button>
+    </form>
+</body>
