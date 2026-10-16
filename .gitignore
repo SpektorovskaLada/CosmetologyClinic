@@ -1,0 +1,16 @@
+# Python virtual environment
+backend/venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Keep an example configuration file, if needed
+!.env.example
+
+# IDE settings
+.vscode/
