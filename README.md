@@ -58,3 +58,8 @@ The entire Django project code is located in the `backend/` directory:
 * Uses Django ORM queries to aggregate completed appointments and related data from PostgreSQL.
 * The **pandas** library prepares monthly time series, and **SARIMAX** builds forecasts (requires at least 24 monthly observations).
 * Data is passed from Django to templates
+
+
+<p align="center">
+  <img src="docs/images/dashboard.png" alt="Dashboard Preview" width="700">
+</p>
