@@ -61,10 +61,10 @@ The entire Django project code is located in the `backend/` directory:
 
 
 <p align="center">
- <img src="images/home.jpg" alt="Home page" width="700">
- <img src="images/main_services_products.jpg" alt="Home page" width="700">
- <img src="images/SARIMA.jpg" alt="SARIMA revenue forecast" width="700">
- <img src="images/analytics.jpg" alt="Chart of the number of completed records by month" width="700">
- <img src="images/adnim.jpg" alt="Django admin" width="700">
- <img src="images/products.jpg" alt="Full Products Shop page" width="700">
+  <img src="images/home.jpg" alt="Main page" width="500">
+  <img src="images/main_services_products.jpg" alt="Main page: Services and products" width="500">
+  <img src="images/SARIMA.jpg" alt="SARIMA revenue forecast" width="500">
+  <img src="images/analytics.jpg" alt="Chart of completed records by month" width="500">
+  <img src="images/admin.jpg" alt="Django admin" width="500">
+  <img src="images/products.jpg" alt="Full Products Shop page" width="500">
 </p>
