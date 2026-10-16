@@ -59,6 +59,7 @@ The entire Django project code is located in the `backend/` directory:
 * The **pandas** library prepares monthly time series, and **SARIMAX** builds forecasts (requires at least 24 monthly observations).
 * Data is passed from Django to templates
 
+## Interface Preview
 
 <p align="center">
   <img src="images/home.jpg" alt="Main page" width="500">
