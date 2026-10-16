@@ -1,0 +1,20 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/admin_custom.css' %}">
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+    <a href="{% url 'admin:index' %}">Cosmetology Clinic Admin</a>
+</h1>
+
+{% if user.is_authenticated %}
+<a class="dashboard-link" href="{% url 'admin_panel' %}">
+    Панель адміністратора
+</a>
+{% endif %}
+
+{% endblock %}

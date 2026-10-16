@@ -1,0 +1,558 @@
+/*Про лікаря.Вступ*/
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+}
+
+.hero-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 48%;
+}
+
+.hero-image {
+    width: 75%;
+    height: auto;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero-text {
+    width: 48%;
+    font-size: 30px;
+    line-height: 1.6;
+    display: flex;
+    text-align: center;
+}
+
+.learn-more {
+    margin-top: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: var(--color-teracota-dark);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more:hover {
+    background-color: var(--color-teracota-darker);
+}
+
+/* Послуги */
+.services {
+    text-align: center;
+    padding: 20px;
+}
+
+.menu-services-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.menu-services-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.service-button {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.service-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.service-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.service-button:hover img {
+    opacity: 0.7;
+}
+
+.service-button:hover::after {
+    opacity: 1;
+}
+
+.service-button span {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Магазин */
+.shop {
+    text-align: center;
+    padding: 20px;
+}
+
+.shop-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.menu-items-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.menu-items-personal-container {
+    background-color: white;
+    margin: 10px;
+    border: none;
+    border-radius: 30px;
+}
+
+.menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    justify-content: center;
+}
+
+.menu-items:hover {
+    cursor: pointer;
+    border: solid black 2px;
+    border-radius: 30px;
+}
+
+.menu-image-wraper {
+    border: none;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.menu-cream-image {
+    width: 300px;
+    object-fit: cover;
+}
+
+.menu-items-description {
+    padding: 5px;
+}
+
+.show-all {
+    margin-top: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: var(--color-teracota-dark);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.show-all:hover {
+    background-color: var(--color-teracota-darker);
+}
+
+/* До/після */
+.galery {
+    text-align: center;
+    padding: 20px;
+}
+
+.galery-title {
+    font-size: 32px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.galery-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.galery-change {
+    position: relative;
+    width: 500px;
+    height: 400px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+}
+
+.galery-change img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease;
+}
+
+.galery-change .after {
+    opacity: 0;
+}
+
+/* Відгуки */
+.reviews {
+    box-sizing: border-box;
+    text-align: center;
+    padding: 20px 20px 80px;
+    background-color: var(--color-beige-grey);
+}
+
+.reviews-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.reviews-main-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.reviews-container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+}
+
+.reviews-wrapper {
+    position: relative;
+    flex: 1;
+    min-height: 360px;
+    padding-bottom: 55px;
+    box-sizing: border-box;
+}
+
+.reviews-section,
+.form-section {
+    flex: 1 1 0;
+    min-width: 0;
+    height: auto;
+    border: 3px solid var(--color-teracota-dark);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.reviews-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.review-item {
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left;
+    color: #333;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.review-item h3 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.review-rating {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.review-item p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 20px;
+}
+
+/* Навігація відгуків */
+.nav-buttons-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    gap: 5px;
+}
+
+.nav-btn {
+    background: var(--color-teracota-dark);
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.nav-btn:hover {
+    background: var(--color-teracota-darker);
+}
+
+/* Права картка: форма */
+.form-section {
+    overflow: visible;
+}
+
+.form-section h2 {
+    margin-bottom: 25px;
+}
+
+.index-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.index-input,
+.index-textarea,
+.index-form select {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid var(--color-nearly-white);
+    border-radius: 6px;
+    background: white;
+}
+
+.index-textarea {
+    height: 110px;
+    min-height: 110px;
+    max-height: 180px;
+    resize: vertical;
+    overflow-y: auto;
+}
+
+.index-form select {
+    cursor: pointer;
+}
+
+.review-submit-btn,
+.index-form button[type="submit"] {
+    background: var(--color-teracota-dark);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 12px 30px;
+    margin: 10px auto 0;
+    display: block;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.review-submit-btn:hover,
+.index-form button[type="submit"]:hover {
+    background: var(--color-teracota-darker);
+}
+
+/* Popup */
+.review-popup {
+    margin-top: 15px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.review-popup.error {
+    background: #f7d7d7;
+    color: #8a2f2f;
+    border: 1px solid #d89a9a;
+}
+
+.review-popup.success {
+    background: #dff2df;
+    color: #2f6b2f;
+    border: 1px solid #9dcc9d;
+}
+
+@media only screen and (max-width: 480px) {
+    .hero-container {
+        padding-bottom: 0;
+    }
+
+    .hero-image {
+        width: 120%;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-text {
+        font-size: 10px;
+    }
+
+    .learn-more {
+        margin-top: 3px;
+        padding: 6px 16px;
+        font-size: 10px;
+    }
+
+    .menu-services-title {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    .menu-services-container {
+        gap: 15px;
+    }
+
+    .service-button {
+        width: 200px;
+        height: 150px;
+    }
+
+    .service-button span {
+        bottom: 5px;
+        left: 5px;
+        right: 5px;
+        padding: 8px;
+        font-size: 14px;
+        border-radius: 3px;
+    }
+
+    .shop-title {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    .menu-items-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-items-personal-container {
+        margin: 10px auto;
+        width: 60%;
+    }
+
+    .menu-items {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu-cream-image {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .show-all {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .galery-title {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    .galery-change {
+        width: 300px;
+        height: 200px;
+        margin: 10px;
+    }
+
+    .reviews-title {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    .reviews-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .reviews-wrapper,
+    .form-section {
+        width: 100%;
+    }
+
+    .reviews-section,
+    .form-section {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .review-item h3 {
+        font-size: 22px;
+    }
+
+    .review-item p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .nav-buttons-container {
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .index-input,
+    .index-textarea,
+    .index-form select {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .review-submit-btn,
+    .index-form button[type="submit"] {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .nav-btn {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+}

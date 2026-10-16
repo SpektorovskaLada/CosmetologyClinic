@@ -1,0 +1,404 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Статистика клініки</title>
+
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+</head>
+
+<body>
+
+<button
+    class="back-button"
+    onclick="window.location.href='/admin-panel/'"
+>
+    ← До панелі
+</button>
+
+<h1>Аналітичний модуль</h1>
+
+<div class="tabs">
+    <button type="button" onclick="showTab('analytics')" class="tab-btn">Аналіз</button>
+    <button type="button" onclick="showTab('forecast')" class="tab-btn">Прогнозування</button>
+</div>
+
+<div id="analyticsTab">
+
+    <div class="chart-card">
+        <h2>Кількість завершених записів по місяцях</h2>
+
+        <form method="get" class="filter-form">
+            <label>Дата від:</label>
+            <input type="date" name="records_from" value="{{ records_from }}">
+
+            <label>Дата до:</label>
+            <input type="date" name="records_to" value="{{ records_to }}">
+
+            <button type="submit">Показати</button>
+        </form>
+
+        <canvas id="recordsByMonthChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h2>Популярність послуг</h2>
+
+        <form method="get" class="filter-form">
+            <label>Дата від:</label>
+            <input type="date" name="services_from" value="{{ services_from }}">
+
+            <label>Дата до:</label>
+            <input type="date" name="services_to" value="{{ services_to }}">
+
+            <button type="submit">Показати</button>
+        </form>
+
+        <canvas id="servicesPopularityChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h2>Популярність категорій послуг</h2>
+
+        <form method="get" class="filter-form">
+            <label>Дата від:</label>
+            <input type="date" name="categories_from" value="{{ categories_from }}">
+
+            <label>Дата до:</label>
+            <input type="date" name="categories_to" value="{{ categories_to }}">
+
+            <button type="submit">Показати</button>
+        </form>
+
+        <canvas id="categoriesPopularityChart"></canvas>
+    </div>
+    <div class="chart-card">
+        <h2>Середня частота відвідувань за статтю</h2>
+        <canvas id="genderChart"></canvas>
+    </div>
+    <div class="chart-card">
+        <h2>Популярність послуг залежно від статі</h2>
+        <canvas id="servicesGenderChart"></canvas>
+    </div>
+    <div class="chart-card">
+        <h2>Середня частота відвідувань за віковими групами</h2>
+        <canvas id="ageChart"></canvas>
+    </div>
+
+</div>
+
+<div id="forecastTab" style="display:none;">
+
+    <div class="chart-card">
+        <h2>SARIMA прогноз попиту</h2>
+
+        <form method="get" class="filter-form">
+            <label>Період прогнозу:</label>
+
+            <select name="forecast_months">
+                <option value="1" {% if forecast_months == 1 %}selected{% endif %}>1 місяць</option>
+                <option value="6" {% if forecast_months == 6 %}selected{% endif %}>6 місяців</option>
+                <option value="12" {% if forecast_months == 12 %}selected{% endif %}>12 місяців</option>
+            </select>
+
+            <button type="submit">Побудувати прогноз</button>
+        </form>
+
+        <canvas id="sarimaChart"></canvas>
+    </div>
+        <div class="chart-card">
+        <h2>SARIMA прогноз доходу</h2>
+
+        <form method="get" class="filter-form">
+            <label>Період прогнозу:</label>
+
+            <select name="forecast_months">
+                <option value="1" {% if forecast_months == 1 %}selected{% endif %}>1 місяць</option>
+                <option value="6" {% if forecast_months == 6 %}selected{% endif %}>6 місяців</option>
+                <option value="12" {% if forecast_months == 12 %}selected{% endif %}>12 місяців</option>
+            </select>
+
+            <button type="submit">Побудувати прогноз</button>
+        </form>
+
+        <canvas id="incomeForecastChart"></canvas>
+    </div>
+
+</div>
+
+<script>
+    //Chart.register(ChartDataLabels);
+    function showTab(tabName) {
+        localStorage.setItem("activeDashboardTab", tabName);
+
+        document.getElementById("analyticsTab").style.display =
+            tabName === "analytics" ? "block" : "none";
+
+        document.getElementById("forecastTab").style.display =
+            tabName === "forecast" ? "block" : "none";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const activeTab = localStorage.getItem("activeDashboardTab") || "analytics";
+        showTab(activeTab);
+
+        const scrollY = localStorage.getItem("dashboardScrollY");
+
+        if (scrollY !== null) {
+            setTimeout(function () {
+                window.scrollTo(0, parseInt(scrollY));
+            }, 100);
+        }
+    });
+
+    window.addEventListener("beforeunload", function () {
+        localStorage.setItem("dashboardScrollY", window.scrollY);
+    });
+
+    const monthLabels = {{ month_labels|safe }};
+    const monthCounts = {{ month_counts|safe }};
+
+    const forecastLabels = {{ forecast_labels|safe }};
+    const forecastValues = {{ forecast_values|safe }};
+    const forecastLower = {{ forecast_lower|safe }};
+    const forecastUpper = {{ forecast_upper|safe }};
+
+    const serviceLabels = {{ service_labels|safe }};
+    const serviceCounts = {{ service_counts|safe }};
+
+    const categoryLabels = {{ category_labels|safe }};
+    const categoryCounts = {{ category_counts|safe }};
+
+    new Chart(document.getElementById("recordsByMonthChart"), {
+        type: "line",
+        data: {
+            labels: monthLabels,
+            datasets: [{
+                label: "Кількість завершених записів",
+                data: monthCounts,
+                tension: 0.3
+            }]
+        }
+    });
+
+    new Chart(document.getElementById("sarimaChart"), {
+        type: "line",
+        data: {
+            labels: [...monthLabels, ...forecastLabels],
+            datasets: [
+                {
+                    label: "Реальні дані",
+                    data: [...monthCounts, ...Array(forecastValues.length).fill(null)],
+                    tension: 0.3
+                },
+                {
+                    label: "SARIMA прогноз",
+                    data: [
+                        ...Array(monthCounts.length - 1).fill(null),
+                        monthCounts[monthCounts.length - 1],
+                        ...forecastValues
+                    ],
+                    tension: 0.3
+                },
+                {
+                    label: "Нижня межа довірчого інтервалу",
+                    data: [
+                        ...Array(monthCounts.length - 1).fill(null),
+                        monthCounts[monthCounts.length - 1],
+                        ...forecastLower
+                    ],
+                    borderDash: [5, 5],
+                    tension: 0.3
+                },
+                {
+                    label: "Верхня межа довірчого інтервалу",
+                    data: [
+                        ...Array(monthCounts.length - 1).fill(null),
+                        monthCounts[monthCounts.length - 1],
+                        ...forecastUpper
+                    ],
+                    borderDash: [5, 5],
+                    tension: 0.3
+                }
+            ]
+        }
+    });
+
+    new Chart(document.getElementById("servicesPopularityChart"), {
+        type: "bar",
+        data: {
+            labels: serviceLabels,
+            datasets: [{
+                label: "Кількість завершених записів",
+                data: serviceCounts
+            }]
+        },
+        options: {
+            indexAxis: "y"
+        }
+    });
+
+    new Chart(document.getElementById("categoriesPopularityChart"), {
+        type: "bar",
+        data: {
+            labels: categoryLabels,
+            datasets: [{
+                label: "Кількість завершених записів",
+                data: categoryCounts
+            }]
+        }
+    });
+    const incomeLabels = {{ income_labels|safe }};
+    const incomeValues = {{ income_values|safe }};
+
+    const incomeForecastLabels = {{ income_forecast_labels|safe }};
+    const incomeForecastValues = {{ income_forecast_values|safe }};
+    const incomeForecastLower = {{ income_forecast_lower|safe }};
+    const incomeForecastUpper = {{ income_forecast_upper|safe }};
+    new Chart(document.getElementById("incomeForecastChart"), {
+        type: "line",
+        data: {
+            labels: [...incomeLabels, ...incomeForecastLabels],
+
+            datasets: [
+                {
+                    label: "Реальний дохід, грн",
+
+                    data: [
+                        ...incomeValues,
+                        ...Array(incomeForecastValues.length).fill(null)
+                    ],
+
+                    borderColor: "#4a90e2",
+                    backgroundColor: "#4a90e2",
+                    tension: 0.3
+                },
+
+                {
+                    label: "SARIMA прогноз доходу, грн",
+
+                    data: [
+                        ...Array(incomeValues.length - 1).fill(null),
+                        incomeValues[incomeValues.length - 1],
+                        ...incomeForecastValues
+                    ],
+
+                    borderColor: "#e05a5a",
+                    backgroundColor: "#e05a5a",
+                    tension: 0.3
+                },
+
+                {
+                    label: "Нижня межа довірчого інтервалу",
+
+                    data: [
+                        ...Array(incomeValues.length - 1).fill(null),
+                        incomeValues[incomeValues.length - 1],
+                        ...incomeForecastLower
+                    ],
+
+                    borderColor: "#f4a261",
+                    borderDash: [5, 5],
+                    tension: 0.3
+                },
+
+                {
+                    label: "Верхня межа довірчого інтервалу",
+
+                    data: [
+                        ...Array(incomeValues.length - 1).fill(null),
+                        incomeValues[incomeValues.length - 1],
+                        ...incomeForecastUpper
+                    ],
+
+                    borderColor: "#f4a261",
+                    borderDash: [5, 5],
+                    tension: 0.3
+                }
+            ]
+        }
+    });
+    const genderLabels = {{ gender_labels|safe }};
+    const genderCounts = {{ gender_counts|safe }};
+
+    new Chart(document.getElementById("genderChart"), {
+        type: "pie",
+
+        data: {
+            labels: genderLabels,
+            datasets: [{
+                data: genderCounts
+            }]
+        },
+
+        options: {
+            plugins: {
+                datalabels: {
+                    color: "white",
+                    font: {
+                        weight: "bold",
+                        size: 16
+                    },
+                    formatter: function(value, context) {
+                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                        return ((value / total) * 100).toFixed(1) + "%";
+                    }
+                },
+
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.label}: ${context.raw} клієнтів`;
+                        }
+                    }
+                }
+            }
+        },
+
+        plugins: [ChartDataLabels]
+    });
+    const serviceGenderLabels = {{ gender_service_labels|safe }};
+    const maleServiceCounts = {{ male_services_counts|safe }};
+    const femaleServiceCounts = {{ female_services_counts|safe }};
+
+    new Chart(document.getElementById("servicesGenderChart"), {
+        type: "bar",
+
+        data: {
+            labels: serviceGenderLabels,
+
+            datasets: [
+                {
+                    label: "Чоловіки",
+                    data: maleServiceCounts
+                },
+
+                {
+                    label: "Жінки",
+                    data: femaleServiceCounts
+                }
+            ]
+        }
+    });
+    const ageGroupLabels = {{ age_group_labels|safe }};
+    const ageGroupCounts = {{ age_group_counts|safe }};
+
+    new Chart(document.getElementById("ageChart"), {
+        type: "bar",
+
+        data: {
+            labels: ageGroupLabels,
+
+            datasets: [{
+                label: "Середня кількість відвідувань",
+                data: ageGroupCounts
+            }]
+        }
+    });
+</script>
+</body>
+</html>

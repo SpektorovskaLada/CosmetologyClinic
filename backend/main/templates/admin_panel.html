@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Панель адміністратора</title>
+    <link rel="stylesheet" href="{% static 'css/admin_panel.css' %}">
+</head>
+<body>
+<a href="/" class="back-site-btn">
+    ← Повернутись на сайт
+</a>
+<div class="admin-panel">
+    <h1>Панель адміністратора</h1>
+
+    <div class="admin-grid">
+        <a href="{% url 'dashboard' %}" class="admin-card">Аналіз та прогнозування</a>
+
+        <a href="/admin/main/services/" class="admin-card">Послуги</a>
+        <a href="/admin/main/doctor/" class="admin-card">Фахівці</a>
+
+        <a href="/admin/main/products/" class="admin-card">Товари</a>
+        <a href="/admin/main/client/" class="admin-card">Клієнти</a>
+
+        <a href="/admin/main/records/" class="admin-card">Записи клієнтів</a>
+        <a href="/admin/main/callrequests/" class="admin-card">Заявки</a>
+
+        <a href="/admin/main/reviews/" class="admin-card">Відгуки</a>
+        <a href="/admin/main/usedproducts/" class="admin-card">Витратні матеріали</a>
+        <a href="/admin/" class="admin-card secondary">Django admin</a>
+    </div>
+</div>
+
+</body>
+</html>

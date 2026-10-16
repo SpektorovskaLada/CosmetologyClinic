@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page_title }}</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/services.css' %}">
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="emblema">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/emblema.png' %}" alt="Головна">
+            </a>
+        </div>
+
+        <div class="links">
+            <div class="links-inner a"><a class="links-a" href="{% url 'home' %}#services">Послуги</a></div>
+            <div class="links-inner a"><a class="links-a" href="{% url 'shop' %}">Магазин</a></div>
+            <div class="links-inner a"><a class="links-a" href="{% url 'home' %}#reviews">Відгуки</a></div>
+            <div class="links-inner"><button id="openFormBtn" class="contact_button">Зв'язатись</button></div>
+            <a href="/admin-panel/" class="admin-mini-btn">⚙ </a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="services-block">
+        <h1 class="services-main-title">{{ page_title }}</h1>
+
+        {% for group in services_by_category %}
+            <h3 class="services-main-title">{{ group.category.name }}</h3>
+
+            {% for service in group.services %}
+                <div class="services-container">
+                    <h4 class="services-title">{{ service.name }}</h4>
+
+                    <p class="services-content">
+                        {{ service.description|default:"Опис послуги" }}
+                    </p>
+
+                    <div class="services-price">
+                        {{ service.price }} грн
+                    </div>
+
+                    <button class="services-button-signUpForm">
+                        Записатись
+                    </button>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</main>
+<div id="formWraper" class="form-wraper">
+    <div class="form-container">
+        <div class="cls-btn-wrp">
+            <button class="cls-btn" id="closeZapisForm">×</button>
+        </div>
+
+        <form method="dialog" class="dialog-form" id="zapisForm">
+            <h2 class="zapis-hat">Записатися на прийом</h2>
+
+            <div class="form-insides">
+                <label for="zapisName">Ваше ім'я:</label>
+                <input class="form-inputs" type="text" id="zapisName" name="name" placeholder="Введіть ваше ім'я">
+            </div>
+
+            <div class="form-insides">
+                <label for="zapisPhone">Ваш телефон:</label>
+                <input class="form-inputs" type="tel" id="zapisPhone" name="phone" placeholder="+380 (XX) XXX-XXXX">
+            </div>
+
+            <div class="form-insides big-input">
+                <label for="zapisMessage">Коментар:</label>
+                <textarea class="form-inputs" id="zapisMessage" name="message" placeholder="Ваші побажання або питання"></textarea>
+            </div>
+
+            <div class="form-insides">
+                <label>
+                    <input type="checkbox" id="zapisAgree" name="agree">
+                    Погоджуюсь на обробку даних
+                </label>
+            </div>
+
+            <button class="submit-btn" id="submitZapisBtn" type="submit">Записатися</button>
+        </form>
+    </div>
+</div>
+<script src="{% static 'js/zapis.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5efe6;
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+    color: #7b3f35;
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: #7b3f35;
+}
+
+.tabs {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tab-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    background: #7b3f35;
+    color: white;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.tab-btn:hover {
+    opacity: 0.9;
+}
+
+.chart-card {
+    background: white;
+    padding: 25px;
+    margin: 30px auto;
+    max-width: 1000px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.filter-form {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.filter-form label {
+    font-weight: bold;
+}
+
+.filter-form input,
+.filter-form select,
+select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.filter-form button {
+    padding: 9px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #7b3f35;
+    color: white;
+    cursor: pointer;
+}
+
+.filter-form button:hover {
+    opacity: 0.9;
+}
+
+canvas {
+    max-height: 420px;
+}
+
+.back-button{
+    position: fixed;
+    top: 25px;
+    left: 25px;
+
+    background: #7b3f35;
+    color: white !important;
+
+    text-decoration: none;
+
+    padding: 14px 22px;
+
+    border-radius: 14px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    z-index: 999;
+
+    transition: 0.2s;
+
+    box-shadow:
+        0 10px 24px rgba(123,63,53,0.25);
+}
+
+.back-button:hover{
+    background: #5f2f28;
+    transform: translateY(-2px);
+}

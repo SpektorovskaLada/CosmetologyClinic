@@ -1,0 +1,463 @@
+:root {
+    --primary: #7b3f35;
+    --secondary: #9b5c50;
+    --accent: #f5efe6;
+
+    --body-bg: #f5efe6;
+    --body-fg: #3f302d;
+
+    --header-bg: #7b3f35;
+    --header-color: #ffffff;
+
+    --breadcrumbs-bg: #a36a5f;
+
+    --link-fg: #7b3f35;
+    --link-hover-color: #5f2f28;
+
+    --darkened-bg: #efe6dc;
+    --selected-bg: #eaded2;
+    --hairline-color: #e0d3c8;
+
+    --button-bg: #7b3f35;
+    --button-hover-bg: #5f2f28;
+}
+
+/* GLOBAL */
+
+body,
+#content {
+    background: #f5efe6 !important;
+    color: #3f302d;
+    font-family: Arial, sans-serif;
+}
+
+#content h1 {
+    display: none;
+}
+
+/* HEADER */
+
+#header {
+    background: #7b3f35 !important;
+    color: white !important;
+    min-height: 64px;
+}
+
+#branding {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+#branding h1,
+#branding h1 a {
+    color: white !important;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.dashboard-link {
+    background: #f5efe6;
+    color: #7b3f35 !important;
+    padding: 11px 22px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.dashboard-link:hover {
+    background: white;
+}
+
+/* USER TOOLS */
+
+#user-tools,
+#user-tools a {
+    color: white !important;
+}
+
+/* BREADCRUMBS */
+
+div.breadcrumbs {
+    background: #a36a5f !important;
+    color: white !important;
+}
+
+/* SIDEBAR */
+
+#nav-sidebar {
+    background: #f5efe6 !important;
+    border-right: 1px solid #e0d3c8;
+}
+
+#nav-sidebar .module {
+    background: #fffaf6 !important;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+#nav-sidebar .module h2 {
+    background: #7b3f35 !important;
+    color: white !important;
+}
+
+#nav-sidebar tr.current-model {
+    background: #eaded2 !important;
+}
+
+#nav-sidebar tr.current-model a {
+    color: #7b3f35 !important;
+    font-weight: bold;
+}
+
+/* MODULES */
+
+.module {
+    background: white !important;
+    border: 1px solid #e1d4c8;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.module h2,
+.module caption,
+.inline-group h2 {
+    background: #7b3f35 !important;
+    color: white !important;
+}
+
+/* CHANGELIST */
+
+#changelist {
+    background: white !important;
+    border: 1px solid #d8c8bd;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+#toolbar,
+.actions {
+    background: #fffaf6 !important;
+    border-bottom: 1px solid #e0d3c8 !important;
+}
+
+/* TABLE */
+
+#result_list {
+    background: white !important;
+}
+
+#result_list thead th {
+    background: #eaded2 !important;
+    color: #3f302d !important;
+    font-weight: bold;
+}
+
+#result_list tbody tr.row1 {
+    background: white !important;
+}
+
+#result_list tbody tr.row2 {
+    background: #f7efe8 !important;
+}
+
+#result_list tbody tr:hover {
+    background: #eaded2 !important;
+}
+
+#result_list td,
+#result_list th {
+    border-bottom: 1px solid #e0d3c8 !important;
+}
+
+/* FILTER */
+
+#changelist-filter {
+    background: #f0e6dc !important;
+    border-left: 1px solid #d8c8bd;
+}
+
+#changelist-filter h2 {
+    background: #7b3f35 !important;
+    color: white !important;
+}
+
+#changelist-filter h3 {
+    color: #5f2f28 !important;
+}
+
+#changelist-filter a {
+    color: #7b3f35 !important;
+}
+
+/* LINKS */
+
+a:link,
+a:visited {
+    color: #7b3f35;
+}
+
+a:hover {
+    color: #5f2f28;
+}
+
+/* BUTTONS */
+
+.button,
+input[type=submit],
+input[type=button],
+.submit-row input,
+a.button,
+.object-tools a {
+    background: #7b3f35 !important;
+    color: white !important;
+    border: none;
+    border-radius: 10px;
+    padding: 9px 18px;
+}
+
+.button:hover,
+input[type=submit]:hover,
+input[type=button]:hover,
+.submit-row input:hover,
+a.button:hover,
+.object-tools a:hover {
+    background: #5f2f28 !important;
+}
+
+/* INPUTS */
+
+input,
+select,
+textarea {
+    border-radius: 10px !important;
+    border: 1px solid #d6c5ba !important;
+    background: white !important;
+    padding: 9px !important;
+}
+
+/* LOGIN */
+
+.login {
+    background: #f5efe6 !important;
+}
+
+.login #container {
+    width: 430px;
+    margin-top: 90px;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #fffdfb !important;
+    border: 1px solid #e4d7cb;
+    box-shadow: 0 18px 45px rgba(123,63,53,0.18);
+}
+
+.login #header {
+    background: #7b3f35 !important;
+    padding: 30px 28px;
+}
+
+.login #branding {
+    display: block;
+}
+
+.login #branding h1,
+.login #branding h1 a {
+    color: white !important;
+    font-size: 24px !important;
+    text-align: center;
+}
+
+.login #content {
+    background: #fffdfb !important;
+    padding: 34px 30px 28px;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px !important;
+}
+
+.login .submit-row {
+    background: transparent !important;
+    border: none;
+    text-align: center;
+}
+/* краще відокремлення таблиці від фону */
+#changelist {
+    margin-top: 25px !important;
+}
+
+#changelist .results {
+    background: white !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+}
+
+/* прибрати відчуття злиття */
+#result_list {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+}
+
+#result_list thead th {
+    background: #d8c7ba !important;
+    color: #3f302d !important;
+    font-weight: 700 !important;
+}
+
+#result_list tbody tr.row1 {
+    background: #ffffff !important;
+}
+
+#result_list tbody tr.row2 {
+    background: #eee3d8 !important;
+}
+
+#result_list tbody tr:hover {
+    background: #e0ccbf !important;
+}
+
+/* трохи більше повітря */
+#result_list td,
+#result_list th {
+    padding: 13px 12px !important;
+}
+
+/* toolbar світліший */
+#toolbar {
+    background: #fffdfb !important;
+    padding: 18px !important;
+}
+
+/* action bar */
+.actions {
+    background: #f6eee7 !important;
+    padding: 14px 12px !important;
+}
+
+/* правий фільтр більш відділений */
+#changelist-filter {
+    background: #eaded2 !important;
+    border-left: 2px solid #cdb8aa !important;
+}
+
+#changelist-filter h2 {
+    background: #7b3f35 !important;
+}
+#result_list thead th a,
+#result_list thead th {
+    color: #5a4039 !important;
+    opacity: 1 !important;
+}
+
+#result_list thead th .sortoptions a {
+    color: #7b3f35 !important;
+}
+
+#result_list thead th:hover {
+    background: #cfbdae !important;
+}
+#result_list thead th {
+    font-weight: 700 !important;
+}
+.action-counter,
+.actions label,
+.actions select,
+.actions span,
+#changelist .actions {
+    color: #5a4039 !important;
+    opacity: 1 !important;
+}
+
+.action-counter {
+    font-weight: 600 !important;
+}
+
+.actions {
+    background: #f3ebe3 !important;
+}
+#changelist .paginator {
+    color: #5a4039 !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+}
+#changelist .paginator {
+    background: white !important;
+
+    padding: 12px 18px !important;
+
+    border-bottom: 1px solid #e0d3c8 !important;
+}
+/* видимий текст у формах додавання/редагування */
+
+.aligned label,
+.form-row label,
+label.required {
+    color: #5a4039 !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+}
+
+.form-row {
+    background: #fffdfb !important;
+}
+
+.form-row:hover {
+    background: #f8f1ea !important;
+}
+
+.help,
+.helptext,
+.datetime .timezonewarning {
+    color: #8a6a60 !important;
+    opacity: 1 !important;
+}
+.datetime,
+.datetime span,
+.datetime br + span,
+.datetime label {
+    color: #5a4039 !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+}
+
+.datetime a {
+    color: #7b3f35 !important;
+    opacity: 1 !important;
+}
+
+.datetime .timezonewarning {
+    color: #8a6a60 !important;
+    opacity: 1 !important;
+    font-weight: 400 !important;
+}
+/* максимально жорстко повертаємо видимість підписів у формах */
+
+fieldset.module label,
+fieldset.module label.required,
+fieldset.module .form-row label,
+fieldset.module .aligned label,
+fieldset.module .flex-container label,
+fieldset.module .datetime label,
+fieldset.module .datetime span,
+fieldset.module .datetime a {
+    color: #2f2522 !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+}
+
+fieldset.module .form-row > div > label {
+    color: #2f2522 !important;
+    opacity: 1 !important;
+}
+
+fieldset.module .form-row.field-registration_date label,
+fieldset.module .form-row.field-registration_date > div > label {
+    color: #2f2522 !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+}
