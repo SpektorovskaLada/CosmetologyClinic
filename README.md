@@ -1,47 +1,60 @@
 # 💇‍♀️ Cosmetology Clinic Management System
 
-**Cosmetology Clinic Management System** — це вебдодаток для косметологічної клініки, побудований на **Django** та **PostgreSQL**. Проєкт поєднує публічний вебсайт клініки з динамічним управлінням контентом та адміністративною аналітичною панеллю.
+**Cosmetology Clinic Management System** is a web application for a cosmetology clinic, built with **Django** and **PostgreSQL**. The project combines a public-facing clinic website with dynamic database-backed content management and an administrative analytics dashboard.
 
 ---
 
-## 🚀 Основні можливості
+## 🚀 Key Features
 
-* **Публічний сайт:**
-  * Головна сторінка.
-  * Інформація про спеціалістів.
-  * Сторінки косметологічних послуг.
-  * Каталог товарів/продукції.
+* **Public Clinic Website:**
+  * Homepage.
+  * Specialist profiles and information.
+  * Cosmetology service pages.
+  * Product catalogue.
 
-* **Управління контентом через БД:**
-  * Доступ до послуг, категорій послуг, товарів, категорій товарів, спеціалістів, клієнтів, записів на прийом, запитів на зворотний дзвінок та відгуків через Django Models.
+* **Database-Backed Content Management:**
+  * Manage services, service categories, products, product categories, specialists, clients, appointments, callback requests, and reviews via Django Models.
 
-* **Система відгуків:**
-  * Перед створенням відгуку система автоматично перевіряє, чи існує клієнт та чи має він завершений прийом.
+* **Review Submission System:**
+  * Automatically verifies that a client exists and has a completed appointment before allowing a review submission.
 
-* **Панель адміністратора:**
-  * Гнучке налаштування **Django Admin** для керування всіма сутностями: клієнтами, спеціалістами, послугами, товарами, записами, відгуками та використаними продуктами.
+* **Administration Panel:**
+  * Customized **Django Admin** interface for managing clinic records, including clients, specialists, services, products, appointments, reviews, callback requests, and used products.
 
-* **Аналітична панель (Dashboard):**
-  * Інтерактивні графіки з підсумками щодо завершених прийомів, щомісячного доходу, популярних послуг/категорій, а також частоти візитів за статтю та віковими групами.
+* **Analytics Dashboard:**
+  * Interactive charts summarising completed appointments, monthly income, popular services/categories, and client visit frequency by gender and age group.
 
-* **Прогнозування часових рядів:**
-  * Використання моделей **SARIMAX / SARIMA** для прогнозування кількості записів та доходу (за наявності достатнього обсягу історичних даних).
+* **Time-Series Forecasting:**
+  * Uses **SARIMAX / SARIMA** models to forecast appointment counts and income (when sufficient historical data is available).
 
 ---
 
-## 🛠 Технологічний стек
+## 🛠 Technology Stack
 
 * **Backend:** Python, Django, Django ORM
 * **Database:** PostgreSQL
 * **Frontend:** HTML, CSS, JavaScript, Django Templates
-* **Візуалізація та аналітика:** Chart.js, pandas, statsmodels
+* **Visualization & Analytics:** Chart.js, pandas, statsmodels
 
 ---
 
-## 🔄 Як це працює
+## 🔄 How It Works
 
-Увесь код Django-проєкту знаходиться у директорії `backend/`:
+The entire Django project code is located in the `backend/` directory:
 
-1. Браузер надсилає запит за URL-адресою, налаштованою в `backend/config/urls.py`.
-2. Django направляє запит до відповідного представлення (View) у `backend/main/views.py`.
-3. View робить запит або оновлює дані в PostgreSQL через Django ORM та моделі з `backend/main/
+1. A browser sends a page request through a URL configured in `backend/config/urls.py`.
+2. Django routes the request to the corresponding view in `backend/main/views.py`.
+3. The view queries or updates PostgreSQL through Django ORM and models in `backend/main/models.py`.
+4. The view passes the resulting data to a Django template in `backend/main/templates/`.
+5. The template renders the page, loading static CSS, JavaScript, and images from `backend/main/static/`.
+
+> **Important:** The application uses an existing PostgreSQL schema. The clinic models in `main/models.py` are set to `managed = False`, so Django migrations do not create or alter application tables. The database schema must be created separately (e.g., by restoring an SQL dump from the companion database repository). Django migrations are only required for Django's internal system tables.
+
+---
+
+## 📊 Analytics & Forecasting
+
+* Access to the analytics dashboard is restricted to authenticated clinic staff members.
+* Uses Django ORM queries to aggregate completed appointments and related data from PostgreSQL.
+* The **pandas** library prepares monthly time series, and **SARIMAX** builds forecasts (requires at least 24 monthly observations).
+* Data is passed from Django to templates
